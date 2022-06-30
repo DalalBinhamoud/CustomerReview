@@ -11,6 +11,10 @@
 		E4BF4C55286D741D002B1313 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF4C54286D741D002B1313 /* ContentView.swift */; };
 		E4BF4C57286D7421002B1313 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4BF4C56286D7421002B1313 /* Assets.xcassets */; };
 		E4BF4C5A286D7421002B1313 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4BF4C59286D7421002B1313 /* Preview Assets.xcassets */; };
+		E4BF4C63286D9360002B1313 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF4C62286D9360002B1313 /* Review.swift */; };
+		E4BF4C66286D9B58002B1313 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF4C65286D9B58002B1313 /* CustomButton.swift */; };
+		E4BF4C6A286DA0FF002B1313 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4BF4C68286DA0FF002B1313 /* readme.txt */; };
+		E4BF4C6B286DA0FF002B1313 /* riesling.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4BF4C69286DA0FF002B1313 /* riesling.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,11 @@
 		E4BF4C54286D741D002B1313 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E4BF4C56286D7421002B1313 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4BF4C59286D7421002B1313 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E4BF4C62286D9360002B1313 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		E4BF4C65286D9B58002B1313 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		E4BF4C68286DA0FF002B1313 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		E4BF4C69286DA0FF002B1313 /* riesling.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = riesling.ttf; sourceTree = "<group>"; };
+		E4BF4C6C286DA1E3002B1313 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +60,11 @@
 		E4BF4C51286D741D002B1313 /* Deers */ = {
 			isa = PBXGroup;
 			children = (
+				E4BF4C6C286DA1E3002B1313 /* Info.plist */,
+				E4BF4C67286DA0B3002B1313 /* Fonts */,
+				E4BF4C64286D9B43002B1313 /* CustomComponents */,
+				E4BF4C61286D9349002B1313 /* Views */,
+				E4BF4C60286D9340002B1313 /* Models */,
 				E4BF4C52286D741D002B1313 /* DeersApp.swift */,
 				E4BF4C54286D741D002B1313 /* ContentView.swift */,
 				E4BF4C56286D7421002B1313 /* Assets.xcassets */,
@@ -65,6 +79,38 @@
 				E4BF4C59286D7421002B1313 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E4BF4C60286D9340002B1313 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E4BF4C62286D9360002B1313 /* Review.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E4BF4C61286D9349002B1313 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E4BF4C64286D9B43002B1313 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				E4BF4C65286D9B58002B1313 /* CustomButton.swift */,
+			);
+			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		E4BF4C67286DA0B3002B1313 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E4BF4C68286DA0FF002B1313 /* readme.txt */,
+				E4BF4C69286DA0FF002B1313 /* riesling.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +171,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4BF4C6A286DA0FF002B1313 /* readme.txt in Resources */,
+				E4BF4C6B286DA0FF002B1313 /* riesling.ttf in Resources */,
 				E4BF4C5A286D7421002B1313 /* Preview Assets.xcassets in Resources */,
 				E4BF4C57286D7421002B1313 /* Assets.xcassets in Resources */,
 			);
@@ -137,8 +185,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4BF4C66286D9B58002B1313 /* CustomButton.swift in Sources */,
 				E4BF4C55286D741D002B1313 /* ContentView.swift in Sources */,
 				E4BF4C53286D741D002B1313 /* DeersApp.swift in Sources */,
+				E4BF4C63286D9360002B1313 /* Review.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +319,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Deers/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Deers/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -297,6 +349,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Deers/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Deers/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
