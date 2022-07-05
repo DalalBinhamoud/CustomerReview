@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C752F426B303AEE27780C5A0 /* Pods_Deers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9706D79DD36F9C0F16543482 /* Pods_Deers.framework */; };
+		E427A52428734AE9002D0879 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E427A52328734AE8002D0879 /* GoogleService-Info.plist */; };
 		E4BF4C53286D741D002B1313 /* DeersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF4C52286D741D002B1313 /* DeersApp.swift */; };
 		E4BF4C55286D741D002B1313 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF4C54286D741D002B1313 /* ContentView.swift */; };
 		E4BF4C57286D7421002B1313 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4BF4C56286D7421002B1313 /* Assets.xcassets */; };
@@ -18,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FD46112982C98BB9872A010 /* Pods-Deers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deers.release.xcconfig"; path = "Target Support Files/Pods-Deers/Pods-Deers.release.xcconfig"; sourceTree = "<group>"; };
+		9706D79DD36F9C0F16543482 /* Pods_Deers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Deers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E427A52328734AE8002D0879 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4BF4C4F286D741D002B1313 /* Deers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BF4C52286D741D002B1313 /* DeersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeersApp.swift; sourceTree = "<group>"; };
 		E4BF4C54286D741D002B1313 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -28,6 +33,7 @@
 		E4BF4C68286DA0FF002B1313 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		E4BF4C69286DA0FF002B1313 /* riesling.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = riesling.ttf; sourceTree = "<group>"; };
 		E4BF4C6C286DA1E3002B1313 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F02241B1FEF6AFADEEB34F62 /* Pods-Deers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deers.debug.xcconfig"; path = "Target Support Files/Pods-Deers/Pods-Deers.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +41,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C752F426B303AEE27780C5A0 /* Pods_Deers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FE8B48DE8BF8A2BA754E7B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9706D79DD36F9C0F16543482 /* Pods_Deers.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		462FB10E154291ADA9CFF492 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F02241B1FEF6AFADEEB34F62 /* Pods-Deers.debug.xcconfig */,
+				0FD46112982C98BB9872A010 /* Pods-Deers.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E4BF4C46286D741D002B1313 = {
 			isa = PBXGroup;
 			children = (
 				E4BF4C51286D741D002B1313 /* Deers */,
 				E4BF4C50286D741D002B1313 /* Products */,
+				462FB10E154291ADA9CFF492 /* Pods */,
+				0FE8B48DE8BF8A2BA754E7B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +94,7 @@
 				E4BF4C60286D9340002B1313 /* Models */,
 				E4BF4C52286D741D002B1313 /* DeersApp.swift */,
 				E4BF4C54286D741D002B1313 /* ContentView.swift */,
+				E427A52328734AE8002D0879 /* GoogleService-Info.plist */,
 				E4BF4C56286D7421002B1313 /* Assets.xcassets */,
 				E4BF4C58286D7421002B1313 /* Preview Content */,
 			);
@@ -120,9 +148,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4BF4C5D286D7421002B1313 /* Build configuration list for PBXNativeTarget "Deers" */;
 			buildPhases = (
+				94F261CBCDED71933F4FF39A /* [CP] Check Pods Manifest.lock */,
 				E4BF4C4B286D741D002B1313 /* Sources */,
 				E4BF4C4C286D741D002B1313 /* Frameworks */,
 				E4BF4C4D286D741D002B1313 /* Resources */,
+				4A537AFC212CBA24EB9EEC09 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -173,12 +203,55 @@
 			files = (
 				E4BF4C6A286DA0FF002B1313 /* readme.txt in Resources */,
 				E4BF4C6B286DA0FF002B1313 /* riesling.ttf in Resources */,
+				E427A52428734AE9002D0879 /* GoogleService-Info.plist in Resources */,
 				E4BF4C5A286D7421002B1313 /* Preview Assets.xcassets in Resources */,
 				E4BF4C57286D7421002B1313 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4A537AFC212CBA24EB9EEC09 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Deers/Pods-Deers-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Deers/Pods-Deers-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Deers/Pods-Deers-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94F261CBCDED71933F4FF39A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Deers-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E4BF4C4B286D741D002B1313 /* Sources */ = {
@@ -311,6 +384,7 @@
 		};
 		E4BF4C5E286D7421002B1313 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F02241B1FEF6AFADEEB34F62 /* Pods-Deers.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -341,6 +415,7 @@
 		};
 		E4BF4C5F286D7421002B1313 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FD46112982C98BB9872A010 /* Pods-Deers.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
