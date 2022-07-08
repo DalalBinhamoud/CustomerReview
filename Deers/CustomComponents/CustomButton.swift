@@ -18,7 +18,7 @@ struct CustomButton: View {
             HStack {
                 icon
             }
-            .frame(minWidth: 100, maxWidth: .infinity, minHeight: 44)
+            .frame(minWidth: 5, maxWidth: 5, minHeight: 10)
         }
     }
 }

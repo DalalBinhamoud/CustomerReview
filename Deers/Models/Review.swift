@@ -8,8 +8,11 @@
 import Foundation
 
 struct Review: Identifiable {
-    var id: ObjectIdentifier
-     var status: String
+//    var id: ObjectIdentifier
+    var id: String
+    var status: String
+    var date : String
+    var time : String
 }
 
 enum Status: String {
