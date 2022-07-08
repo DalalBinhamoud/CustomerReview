@@ -26,8 +26,8 @@
 		0FD46112982C98BB9872A010 /* Pods-Deers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deers.release.xcconfig"; path = "Target Support Files/Pods-Deers/Pods-Deers.release.xcconfig"; sourceTree = "<group>"; };
 		9706D79DD36F9C0F16543482 /* Pods_Deers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Deers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E427A52328734AE8002D0879 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E427A52B2877F04D002D0879 /* SubmitReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubmitReviewView.swift; path = Deers/SubmitReviewView.swift; sourceTree = SOURCE_ROOT; };
-		E427A52D2877F05F002D0879 /* ReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewsView.swift; path = Deers/ReviewsView.swift; sourceTree = SOURCE_ROOT; };
+		E427A52B2877F04D002D0879 /* SubmitReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubmitReviewView.swift; path = Deers/Views/SubmitReviewView.swift; sourceTree = SOURCE_ROOT; };
+		E427A52D2877F05F002D0879 /* ReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewsView.swift; path = Deers/Views/ReviewsView.swift; sourceTree = SOURCE_ROOT; };
 		E427A52F2877F672002D0879 /* ReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewModel.swift; sourceTree = "<group>"; };
 		E4BF4C4F286D741D002B1313 /* Deers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BF4C52286D741D002B1313 /* DeersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeersApp.swift; sourceTree = "<group>"; };
@@ -71,6 +71,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E457C3D72878159E00664C0C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E427A52D2877F05F002D0879 /* ReviewsView.swift */,
+				E427A52B2877F04D002D0879 /* SubmitReviewView.swift */,
+				E4BF4C54286D741D002B1313 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E4BF4C46286D741D002B1313 = {
 			isa = PBXGroup;
 			children = (
@@ -92,13 +102,12 @@
 		E4BF4C51286D741D002B1313 /* Deers */ = {
 			isa = PBXGroup;
 			children = (
+				E457C3D72878159E00664C0C /* Views */,
 				E4BF4C6C286DA1E3002B1313 /* Info.plist */,
 				E4BF4C67286DA0B3002B1313 /* Fonts */,
 				E4BF4C64286D9B43002B1313 /* CustomComponents */,
-				E4BF4C61286D9349002B1313 /* Views */,
 				E4BF4C60286D9340002B1313 /* Models */,
 				E4BF4C52286D741D002B1313 /* DeersApp.swift */,
-				E4BF4C54286D741D002B1313 /* ContentView.swift */,
 				E427A52328734AE8002D0879 /* GoogleService-Info.plist */,
 				E4BF4C56286D7421002B1313 /* Assets.xcassets */,
 				E4BF4C58286D7421002B1313 /* Preview Content */,
@@ -121,15 +130,6 @@
 				E427A52F2877F672002D0879 /* ReviewsViewModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		E4BF4C61286D9349002B1313 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E427A52B2877F04D002D0879 /* SubmitReviewView.swift */,
-				E427A52D2877F05F002D0879 /* ReviewsView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		E4BF4C64286D9B43002B1313 /* CustomComponents */ = {
