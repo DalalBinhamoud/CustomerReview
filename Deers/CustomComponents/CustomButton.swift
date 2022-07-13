@@ -16,9 +16,9 @@ struct CustomButton: View {
     var body: some View {
         Button(action: clicked) { /// call the closure here
             HStack {
-                icon
+                icon.resizable().frame(minWidth: 10, maxWidth: 200, maxHeight: 200)
             }
-            .frame(minWidth: 5, maxWidth: 5, minHeight: 10)
+        
         }
     }
 }
