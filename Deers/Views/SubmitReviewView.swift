@@ -10,89 +10,99 @@ import FirebaseFirestore
 import FirebaseDatabase
 
 struct SubmitReviewView: View {
+    
     @ObservedObject private var viewModel = ReviewsViewModel()
-    @State var reviewCounter =  UserDefaults.standard.object(forKey: "counter")
-//    var blueColor = UIColor(hex: 04244b)
-   // max 250 char
-    // سيء /مقبول/ جيد//
-    
-    
-    
-    
+    @State private var noteCounter: Int = 0
+    @State private var note: String = "أضف ملاحظاتك..."
+    private let placeholderTxt = "أضف ملاحظاتك..."
+
     var body: some View {
         
-        ZStack{
-            Image("background-1").resizable().scaledToFill().scaledToFit()
-            
-            VStack{
+        VStack(alignment: .center){
+            // logo
+            HStack {
+                Image("background-1").resizable().scaledToFill().scaledToFit().padding(5)
                 Spacer()
-                Text("كيف كانت تجربتك؟").font(.custom("riesling", size: 60)).foregroundColor(.white)
-                
-                HStack{
-                    Spacer()
-                    CustomButton(
-                        
-                        status: "bad",
-                        icon: Image("bad-1")
-                    ) {
-                        
-                        viewModel.addReview(status: "bad")
-                        print("bad Clicked!")
-                    }
-                    Spacer()
-                    
-                    CustomButton(
-                        status: "ok",
-                        icon: Image("ok-1")
-                    ) {
-                        viewModel.addReview(status: "ok")
-                        print("ok Clicked!")
-                    }
-                    Spacer()
-                    CustomButton(
-                        status: "good",
-                        icon: Image("good-1")
-                    ) {
-                        viewModel.addReview(status: "good")
-                        print("good Clicked!")
-                    }
-                    
-                    Spacer()
-                    
-                }
-                Spacer()
-                
-                Divider()
-                
-                HStack{
-                    Spacer()
-                    
-                    Image("twitter").resizable().frame(width: 32.0, height: 32.0)
-                    Text("example.com").font(.system(size: 30)).foregroundColor(.white)
-                    
-                    Spacer()
-                    
-                    
-                    Image("mail").resizable().frame(width: 32.0, height: 32.0)
-                    Text("example.com").font(.system(size: 30)).foregroundColor(.white)
-                    
-                    Spacer()
-                    
-                    Image("instagram").resizable().frame(width: 32.0, height: 32.0)
-                    Text("example.com").font(.system(size: 30)).foregroundColor(.white)
-                    
-                    Spacer()
-                    
-                }.padding(.bottom, 20)
             }
-        }.background(.red)
-        //background(color: blueColor)
+            Spacer()
+            Text("كيف كانت تجربتك؟").font(.custom("riesling", size: 60)).foregroundColor(Constants.Colors.labelColor)
+            
+            // status btns
+            HStack{
+                Spacer()
+                ForEach(Constants.fixedLists.btnStatus) { btn in
+                    CustomButton(
+                        
+                        status: btn.status,
+                        icon: Image("\(btn.status)-1")
+                    ) {
+                        
+                        viewModel.addReview(status: btn.status)
+                        print("\(btn.status) Clicked!")
+                    }
+                    Spacer()
+                }
+                
+            }
+            Spacer()
+            
+            
+            // note
+            VStack(alignment: .trailing, spacing: -40, content:{
+                Text("الملاحظات").foregroundColor(Constants.Colors.labelColor)
+                
+                TextEditor(text: $note)
+                    .padding([.top, .bottom, .leading], 50)
+                    .lineSpacing(5)
+                    .multilineTextAlignment(.trailing)
+                
+                    .foregroundColor(note == placeholderTxt ? .gray : .primary)
+                    .onChange(of: note){ (value) in
+                        print(self.note)
+                        let words = self.note.split { $0 == " " || $0.isNewline }
+                        self.noteCounter = words.count
+                    }
+                    .onTapGesture {
+                        // we remove the placeholder when user start typing
+                        if note == placeholderTxt {
+                            note = ""
+                        }
+                    }
+                Text(noteCounter <= 1 ? "\(noteCounter) /\(Constants.maxLength.textEditor)" : "\(noteCounter) /\(Constants.maxLength.textEditor)")
+                    .foregroundColor(Constants.Colors.labelColor)
+            }).padding(.trailing, 50)
+            
+            Spacer()
+            
+            Button(action: {
+                print("hii")
+            }) { /// call the closure here
+                HStack {
+                    Text("إرسال التقييم").padding(10)
+                }
+            
+            }.background(Constants.Colors.labelColor).cornerRadius(5)
+            
+            
+            Divider().foregroundColor(Constants.Colors.labelColor)
+            
+            
+            HStack{
+                Spacer()
+                
+                ForEach(Constants.fixedLists.socialMediaContent){ content in
+                    SocialMediaIcon(iconName: content.icon,name: content.name)
+                    Spacer()
+                }
+            }.padding(.bottom, 20)
+        }
+        .background(Constants.Colors.secondaryColor)
     }
 }
 
 struct SubmitReviewView_Previews: PreviewProvider {
     static var previews: some View {
         SubmitReviewView()
-            .previewInterfaceOrientation(.landscapeLeft)
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }
