@@ -1,0 +1,6 @@
+framework module Pods_Deers {
+  umbrella header "Pods-Deers-umbrella.h"
+
+  export *
+  module * { export * }
+}
