@@ -15,6 +15,19 @@ struct Review: Identifiable {
     var time : String
 }
 
+struct IdentifiableStatus: Identifiable {
+    var id = UUID()
+    var status: String
+}
+
+struct IdentifiableSocialMedia: Identifiable {
+    var id = UUID()
+    var icon: String
+    var name: String
+}
+
+
+
 enum Status: String {
     case bad = "bad"
     case ok = "ok"
