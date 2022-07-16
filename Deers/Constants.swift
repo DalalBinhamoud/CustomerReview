@@ -36,5 +36,6 @@ struct Constants {
     
     struct maxLength {
         static let textEditor = 250
+        static let textLines = 4
     }
 }
