@@ -16,7 +16,7 @@ class ReviewsViewModel: ObservableObject {
     private var db = Firestore.firestore()
     
     
-    func addReview(status: String){
+    func addReview(status: String, note: String){
         
 //        self.reviewCounter =  UserDefaults.standard.object(forKey: "counter") as! Int
         

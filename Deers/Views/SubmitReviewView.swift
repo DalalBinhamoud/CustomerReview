@@ -12,10 +12,13 @@ import FirebaseDatabase
 struct SubmitReviewView: View {
     
     @ObservedObject private var viewModel = ReviewsViewModel()
+    @ObservedObject private var textEditorManager = TextEditorManager()
     @State private var noteCounter: Int = 0
-    @State private var note: String = "أضف ملاحظاتك..."
+    @State private var touchedBtnStatus: String = " "
+    
+    // const
     private let placeholderTxt = "أضف ملاحظاتك..."
-
+    
     var body: some View {
         
         VStack(alignment: .center){
@@ -34,11 +37,9 @@ struct SubmitReviewView: View {
                     CustomButton(
                         
                         status: btn.status,
-                        icon: Image("\(btn.status)-1")
+                        icon: Image(touchedBtnStatus == btn.status ? "\(btn.status)-1": btn.status)
                     ) {
-                        
-                        viewModel.addReview(status: btn.status)
-                        print("\(btn.status) Clicked!")
+                        self.touchedBtnStatus = btn.status
                     }
                     Spacer()
                 }
@@ -46,47 +47,48 @@ struct SubmitReviewView: View {
             }
             Spacer()
             
-            
             // note
             VStack(alignment: .trailing, spacing: -40, content:{
                 Text("الملاحظات").foregroundColor(Constants.Colors.labelColor)
                 
-                TextEditor(text: $note)
+                TextEditor(text: $textEditorManager.reviewerInput)
+                
                     .padding([.top, .bottom, .leading], 50)
                     .lineSpacing(5)
+                    .lineLimit(Constants.maxLength.textLines)
                     .multilineTextAlignment(.trailing)
                 
-                    .foregroundColor(note == placeholderTxt ? .gray : .primary)
-                    .onChange(of: note){ (value) in
-                        print(self.note)
-                        let words = self.note.split { $0 == " " || $0.isNewline }
-                        self.noteCounter = words.count
+                    .foregroundColor(textEditorManager.reviewerInput == placeholderTxt ? .gray : .primary)
+                    .onChange(of: textEditorManager.reviewerInput){ (value) in
+                        self.noteCounter = self.textEditorManager.reviewerInput.count
                     }
                     .onTapGesture {
                         // we remove the placeholder when user start typing
-                        if note == placeholderTxt {
-                            note = ""
+                        if self.textEditorManager.reviewerInput == placeholderTxt {
+                            self.textEditorManager.reviewerInput = ""
                         }
                     }
-                Text(noteCounter <= 1 ? "\(noteCounter) /\(Constants.maxLength.textEditor)" : "\(noteCounter) /\(Constants.maxLength.textEditor)")
+                Text(noteCounter <= 1 ? "\(self.noteCounter) /\(Constants.maxLength.textEditor)" : "\(noteCounter) /\(Constants.maxLength.textEditor)")
                     .foregroundColor(Constants.Colors.labelColor)
             }).padding(.trailing, 50)
             
             Spacer()
             
+            // submit btn
             Button(action: {
-                print("hii")
-            }) { /// call the closure here
+                viewModel.addReview(status: self.touchedBtnStatus, note: String(self.textEditorManager.reviewerInput.prefix(Constants.maxLength.textEditor)))
+                self.touchedBtnStatus = ""
+                self.noteCounter = 0
+                self.textEditorManager.reviewerInput = "أضف ملاحظاتك..."
+            }) {
                 HStack {
                     Text("إرسال التقييم").padding(10)
                 }
-            
             }.background(Constants.Colors.labelColor).cornerRadius(5)
-            
             
             Divider().foregroundColor(Constants.Colors.labelColor)
             
-            
+            //social media
             HStack{
                 Spacer()
                 

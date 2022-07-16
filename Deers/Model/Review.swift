@@ -20,14 +20,6 @@ struct IdentifiableStatus: Identifiable {
     var status: String
 }
 
-struct IdentifiableSocialMedia: Identifiable {
-    var id = UUID()
-    var icon: String
-    var name: String
-}
-
-
-
 enum Status: String {
     case bad = "bad"
     case ok = "ok"
