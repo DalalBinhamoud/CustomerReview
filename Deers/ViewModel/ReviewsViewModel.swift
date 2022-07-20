@@ -24,7 +24,7 @@ class ReviewsViewModel: ObservableObject {
         self.reviewCounter = self.reviewCounter + 1
         UserDefaults.standard.set( (self.reviewCounter), forKey: "counter")
         print("counter=last\(self.reviewCounter)")
-        db.collection("collectionName").addDocument(data: ["id": self.reviewCounter, "status": status, "date": Date.now]){ error in
+        db.collection("collectionName").addDocument(data: ["id": self.reviewCounter, "status": status, "date": Date.now, "note": note]){ error in
             
             
             if error == nil{
@@ -48,22 +48,16 @@ class ReviewsViewModel: ObservableObject {
             self.reviews = documents.map { (queryDocumentSnapshot) -> Review in
                 let data = queryDocumentSnapshot.data()
                 let status = data["status"] as? String ?? ""
+                let note = data["note"] as? String ?? ""
                 let id = data["id"] as? String ?? ""
                 let date = (data["date"] as? Timestamp)?.dateValue() ?? Date()
                 
-                print("id=", id)
-                print("stat=", status)
-                
-                //date formater
-                let formatter = DateFormatter()
-                formatter.dateStyle = .short
-              
                 //time formatter
                 
                 let timeFormatter = DateFormatter()
                 timeFormatter.timeStyle = .medium
               
-                return Review(id: id , status: status, date: formatter.string(from: date), time: timeFormatter.string(from: date))
+                return Review(id: id , status: status, date: date, time: timeFormatter.string(from: date), note: note)
             }
         }
     }

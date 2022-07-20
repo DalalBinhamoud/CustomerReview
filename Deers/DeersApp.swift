@@ -15,7 +15,6 @@ struct DeersApp: App {
     var currentDate = "2022-09-09"
 
     init() {
-        print("test=1")
         FirebaseApp.configure()
         reviewCountConfig()
     }

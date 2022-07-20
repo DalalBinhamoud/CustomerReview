@@ -11,8 +11,9 @@ struct Review: Identifiable {
 //    var id: ObjectIdentifier
     var id: String
     var status: String
-    var date : String
+    var date : Date
     var time : String
+    var note: String
 }
 
 struct IdentifiableStatus: Identifiable {
