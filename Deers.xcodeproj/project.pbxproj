@@ -24,6 +24,7 @@
 		E4BF4C66286D9B58002B1313 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF4C65286D9B58002B1313 /* CustomButton.swift */; };
 		E4BF4C6A286DA0FF002B1313 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = E4BF4C68286DA0FF002B1313 /* readme.txt */; };
 		E4BF4C6B286DA0FF002B1313 /* riesling.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4BF4C69286DA0FF002B1313 /* riesling.ttf */; };
+		E4CEB14C288AADCD00A18F4C /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CEB14B288AADCD00A18F4C /* Sidebar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		E4BF4C68286DA0FF002B1313 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		E4BF4C69286DA0FF002B1313 /* riesling.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = riesling.ttf; sourceTree = "<group>"; };
 		E4BF4C6C286DA1E3002B1313 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E4CEB14B288AADCD00A18F4C /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		F02241B1FEF6AFADEEB34F62 /* Pods-Deers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deers.debug.xcconfig"; path = "Target Support Files/Pods-Deers/Pods-Deers.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +158,7 @@
 			children = (
 				E4BF4C65286D9B58002B1313 /* CustomButton.swift */,
 				E414E4B8287EF67700A681B1 /* SocialMediaIcon.swift */,
+				E4CEB14B288AADCD00A18F4C /* Sidebar.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				E427A5302877F672002D0879 /* ReviewsViewModel.swift in Sources */,
 				E4BF4C53286D741D002B1313 /* DeersApp.swift in Sources */,
 				E4BF4C63286D9360002B1313 /* Review.swift in Sources */,
+				E4CEB14C288AADCD00A18F4C /* Sidebar.swift in Sources */,
 				E414E4B7287EDFED00A681B1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
