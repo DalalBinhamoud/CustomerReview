@@ -20,16 +20,13 @@ class ReviewsViewModel: ObservableObject {
         
 //        self.reviewCounter =  UserDefaults.standard.object(forKey: "counter") as! Int
         
-        print("counter=\(self.reviewCounter)")
         self.reviewCounter = self.reviewCounter + 1
         UserDefaults.standard.set( (self.reviewCounter), forKey: "counter")
-        print("counter=last\(self.reviewCounter)")
-        db.collection("collectionName").addDocument(data: ["id": self.reviewCounter, "status": status, "date": Date.now, "note": note]){ error in
+        db.collection("Review").addDocument(data: ["id": self.reviewCounter, "status": status, "date": Date.now, "notes": note]){ error in
             
             
             if error == nil{
                 //no errors
-                print("counter=2\(self.reviewCounter)")
                 UserDefaults.standard.set( self.reviewCounter, forKey: "counter")
             }else {
                 //handle error
@@ -39,7 +36,7 @@ class ReviewsViewModel: ObservableObject {
     }
     
     func fetchData() {
-        db.collection("collectionName").addSnapshotListener { (querySnapshot, error) in
+        db.collection("Review").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
                 return
@@ -48,7 +45,7 @@ class ReviewsViewModel: ObservableObject {
             self.reviews = documents.map { (queryDocumentSnapshot) -> Review in
                 let data = queryDocumentSnapshot.data()
                 let status = data["status"] as? String ?? ""
-                let note = data["note"] as? String ?? ""
+                let note = data["notes"] as? String ?? ""
                 let id = data["id"] as? String ?? ""
                 let date = (data["date"] as? Timestamp)?.dateValue() ?? Date()
                 
