@@ -32,74 +32,78 @@ struct ReviewsView: View {
         
     }
     
+    @Environment(\.calendar) var calendar
+     @Environment(\.timeZone) var timeZone
+     
+     var bounds: PartialRangeFrom<Date> {
+         let start = calendar.date(
+             from: DateComponents(
+                 timeZone: timeZone,
+                 year: 2022,
+                 month: 6,
+                 day: 20)
+         )!
+         
+         return start...
+
+     }
+     
+     @State private var dates: Set<DateComponents> = []
+    
     
     var body: some View {
-        ZStack {
-            Sidebar(isSidebarVisible: $isSidebarOpened, startDate: $startDate, endDate: $endDate)
-            VStack{
-           
+        
+        VStack{
+            Spacer()
+            
+            Divider().background(Constants.Colors.primaryColor)
+            
+            HStack(alignment: .center, spacing: 0, content:  {
+              
+                DatePicker(selection: $startDate, in: ...endDate, displayedComponents: .date) {
+                    Image("calendar")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40, height: 40)
+                }
+              
+            })
+            
+            Divider().background(Constants.Colors.primaryColor)
+            
+            Spacer()
+            
+            // create custom columns
+            LazyVGrid(columns: columns) {
+                Text("رقم التقييم").font(.title)
+                Text("حالة التقييم").font(.title)
+                Text("التعليقات").font(.title)
+                Text("تاريخ التقييم").font(.title)
+                Text("وقت التقييم").font(.title)
+            }
+            
+            Divider()
+            
+            ScrollView {
                 
-                ZStack {
-                    Rectangle().fill(Constants.Colors.primaryColor).frame(width: .infinity, height: 100).ignoresSafeArea()
+                ForEach(viewModel.reviews) { review in
                     
-                    HStack {
-                        // make sure the battery is not hidden in real device
-                        Image("background-1")
-                                       .resizable()
-                                       .scaledToFit()
-                                       .frame(width: 100, height: 100).ignoresSafeArea()
-                        
-                        Spacer()
-                                       
-                        Button(action: {
-                            isSidebarOpened.toggle()
-                        }){
-                          
-                            Text("تاريخ التقييم").foregroundColor(.white)
-                            Image("filter-1")
-                                           .resizable()
-                                           .scaledToFit()
-                                           .frame(width: 40, height: 40)
-                        }.padding()
-                        
-                    }
-                }
-                
-                Spacer()
-                
-                
-                // create custom columns
-                LazyVGrid(columns: columns) {
-                    Text("رقم التقييم").font(.title)
-                    Text("حالة التقييم").font(.title)
-                    Text("التعليقات").font(.title)
-                    Text("تاريخ التقييم").font(.title)
-                    Text("وقت التقييم").font(.title)
-                }
-                
-                Divider()
-                
-                ScrollView {
                     
-                    ForEach(viewModel.reviews) { review in
-                        
-                  
-                          if((startDate...endDate).contains(review.date))
-                          {
-                              LazyVGrid(columns: columns, spacing: 4) {
-                                  Text(review.id).font(.title)
-                                  Text(review.status).font(.title)
-                                  Text(review.note).font(.title).truncationMode(.tail)
-                                  Text(formaterFunc(date:review.date)).font(.title)
-                                  Text(review.time).font(.title)
-                              }.padding(.horizontal)
-                              Divider()
-                          }
-                        
+                    if((startDate...endDate).contains(review.date))
+                    {
+                        LazyVGrid(columns: columns, spacing: 4) {
+                            Text(review.id).font(.title)
+                            Text(review.status).font(.title)
+                            Text(review.note).font(.title).truncationMode(.tail)
+                            Text(formaterFunc(date:review.date)).font(.title)
+                            Text(review.time).font(.title)
+                        }.padding(.horizontal)
+                        Divider()
                     }
-                }.onAppear(){
-                    self.viewModel.fetchData()
+                    
                 }
+            }.onAppear(){
+                self.viewModel.fetchData()
             }
         }
     }

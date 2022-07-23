@@ -22,9 +22,9 @@ struct Constants {
             IdentifiableStatus(status: "good")
         ]
         static let socialMediaContent = [
-            IdentifiableSocialMedia(icon: "twitter", name: "example.com"),
-            IdentifiableSocialMedia(icon: "mail", name: "example.com"),
-            IdentifiableSocialMedia(icon: "instagram", name: "example.com")
+            IdentifiableSocialMedia(icon: "twitter", name: "deersksa"),
+            IdentifiableSocialMedia(icon: "snapchat", name: "deers.ksa"),
+            IdentifiableSocialMedia(icon: "instagram", name: "deers.ksa")
         ]
     }
     

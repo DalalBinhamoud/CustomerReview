@@ -22,13 +22,9 @@ struct SubmitReviewView: View {
     var body: some View {
         
         VStack(alignment: .center){
-            // logo
-            HStack {
-                Image("background-1").resizable().scaledToFill().scaledToFit().padding(5)
-                Spacer()
-            }
+            
             Spacer()
-            Text("كيف كانت تجربتك؟").font(.custom("riesling", size: 60)).foregroundColor(Constants.Colors.labelColor)
+            Text("كيف كانت تجربتك؟").font(.custom("riesling", size: 60)).foregroundColor(Constants.Colors.secondaryColor)
             
             // status btns
             HStack{
@@ -48,12 +44,15 @@ struct SubmitReviewView: View {
             Spacer()
             
             // note
-            VStack(alignment: .trailing, spacing: -40, content:{
-                Text("الملاحظات").foregroundColor(Constants.Colors.labelColor)
+            VStack(alignment: .trailing, spacing: 0, content:{
+                Text("الملاحظات").foregroundColor(Constants.Colors.secondaryColor).padding(10)
                 
                 TextEditor(text: $textEditorManager.reviewerInput)
-                
-                    .padding([.top, .bottom, .leading], 50)
+                    .padding(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color(.systemGray5), lineWidth: 1.0)
+                    )
                     .lineSpacing(5)
                     .lineLimit(Constants.maxLength.textLines)
                     .multilineTextAlignment(.trailing)
@@ -69,10 +68,9 @@ struct SubmitReviewView: View {
                         }
                     }
                 Text(noteCounter <= 1 ? "\(self.noteCounter) /\(Constants.maxLength.textEditor)" : "\(noteCounter) /\(Constants.maxLength.textEditor)")
-                    .foregroundColor(Constants.Colors.labelColor)
-            }).padding(.trailing, 50)
+                    .foregroundColor(Constants.Colors.secondaryColor).padding()
+            }).padding([.top, .leading, .trailing],20)
             
-            Spacer()
             
             // submit btn
             Button(action: {
@@ -82,11 +80,13 @@ struct SubmitReviewView: View {
                 self.textEditorManager.reviewerInput = "أضف ملاحظاتك..."
             }) {
                 HStack {
-                    Text("إرسال التقييم").padding(10)
+                    Text("إرسال التقييم").font(.custom("riesling", size: 24)).foregroundColor(Constants.Colors.labelColor).padding()
                 }
-            }.background(Constants.Colors.labelColor).cornerRadius(5)
+            }.background(Constants.Colors.secondaryColor).cornerRadius(5).padding()
             
-            Divider().foregroundColor(Constants.Colors.labelColor)
+            Spacer()
+            
+            Divider().foregroundColor(Constants.Colors.primaryColor)
             
             //social media
             HStack{
@@ -96,9 +96,9 @@ struct SubmitReviewView: View {
                     SocialMediaIcon(iconName: content.icon,name: content.name)
                     Spacer()
                 }
-            }.padding(.bottom, 20)
+            }.padding(.bottom, 10)
         }
-        .background(Constants.Colors.secondaryColor)
+        .background(Constants.Colors.labelColor)
     }
 }
 
