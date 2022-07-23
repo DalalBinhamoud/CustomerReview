@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "logo-41.jpeg",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
@@ -46,6 +47,7 @@
       "size" : "20x20"
     },
     {
+      "filename" : "logo-40.jpeg",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "20x20"
@@ -61,6 +63,7 @@
       "size" : "29x29"
     },
     {
+      "filename" : "logo-42.jpeg",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "40x40"
