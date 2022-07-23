@@ -54,21 +54,41 @@ struct ReviewsView: View {
     var body: some View {
         
         VStack{
-            Spacer()
             
-            Divider().background(Constants.Colors.primaryColor)
+            HStack(alignment: .center){
             
-            HStack(alignment: .center, spacing: 0, content:  {
-              
-                DatePicker(selection: $startDate, in: ...endDate, displayedComponents: .date) {
-                    Image("calendar")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 40, height: 40)
+                
+                //end date
+                HStack{
+                    DatePicker(selection: $endDate, in: startDate...Date(), displayedComponents: .date) {
+
+                    }
+                    Text("إلى")
+                    
+                }.padding([.trailing], -200)
+       
+                
+                //start date
+                HStack{
+                    
+                    DatePicker(selection: $startDate, in: ...endDate, displayedComponents: .date) {
+                        
+                    }
+                    
+                    Text("من")
+                    
                 }
-              
-            })
+                
+                Image("calendar")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                
+                Spacer()
+                
+            }
             
+
             Divider().background(Constants.Colors.primaryColor)
             
             Spacer()
@@ -89,7 +109,7 @@ struct ReviewsView: View {
                 ForEach(viewModel.reviews) { review in
                     
                     
-                    if((startDate...endDate).contains(review.date))
+                    if((startDate...endDate).contains(review.date) || Calendar.current.isDate(startDate, equalTo: review.date, toGranularity: .day))
                     {
                         LazyVGrid(columns: columns, spacing: 4) {
                             Text(review.id).font(.title)
