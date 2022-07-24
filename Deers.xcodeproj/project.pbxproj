@@ -14,6 +14,7 @@
 		E427A52C2877F04D002D0879 /* SubmitReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427A52B2877F04D002D0879 /* SubmitReviewView.swift */; };
 		E427A52E2877F05F002D0879 /* ReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427A52D2877F05F002D0879 /* ReviewsView.swift */; };
 		E427A5302877F672002D0879 /* ReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427A52F2877F672002D0879 /* ReviewsViewModel.swift */; };
+		E43CAB5E288D8DD1006AA23D /* DeersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43CAB5D288D8DD1006AA23D /* DeersTests.swift */; };
 		E43F49D22882DD9F0005F324 /* SocialMediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F49D12882DD9F0005F324 /* SocialMediaApp.swift */; };
 		E43F49D62882F2BD0005F324 /* TextEditorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43F49D52882F2BD0005F324 /* TextEditorManager.swift */; };
 		E4BF4C53286D741D002B1313 /* DeersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BF4C52286D741D002B1313 /* DeersApp.swift */; };
@@ -33,7 +34,18 @@
 		E4DAF780288C25BC00C9AFF8 /* MDPMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DAF77F288C25BC00C9AFF8 /* MDPMonthView.swift */; };
 		E4DAF782288C25DB00C9AFF8 /* MDPMonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DAF781288C25DB00C9AFF8 /* MDPMonthYearPicker.swift */; };
 		E4DAF784288C25F000C9AFF8 /* MDPMonthYearPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DAF783288C25F000C9AFF8 /* MDPMonthYearPickerButton.swift */; };
+		E4DAF787288D846E00C9AFF8 /* SwiftUITooltip in Frameworks */ = {isa = PBXBuildFile; productRef = E4DAF786288D846E00C9AFF8 /* SwiftUITooltip */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E43CAB5F288D8DD2006AA23D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4BF4C47286D741D002B1313 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E4BF4C4E286D741D002B1313;
+			remoteInfo = Deers;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0FD46112982C98BB9872A010 /* Pods-Deers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Deers.release.xcconfig"; path = "Target Support Files/Pods-Deers/Pods-Deers.release.xcconfig"; sourceTree = "<group>"; };
@@ -44,6 +56,8 @@
 		E427A52B2877F04D002D0879 /* SubmitReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubmitReviewView.swift; path = Deers/Views/SubmitReviewView.swift; sourceTree = SOURCE_ROOT; };
 		E427A52D2877F05F002D0879 /* ReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewsView.swift; path = Deers/Views/ReviewsView.swift; sourceTree = SOURCE_ROOT; };
 		E427A52F2877F672002D0879 /* ReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewModel.swift; sourceTree = "<group>"; };
+		E43CAB5B288D8DD1006AA23D /* DeersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E43CAB5D288D8DD1006AA23D /* DeersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeersTests.swift; sourceTree = "<group>"; };
 		E43F49D12882DD9F0005F324 /* SocialMediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaApp.swift; sourceTree = "<group>"; };
 		E43F49D52882F2BD0005F324 /* TextEditorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorManager.swift; sourceTree = "<group>"; };
 		E4BF4C4F286D741D002B1313 /* Deers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,10 +83,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E43CAB58288D8DD1006AA23D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E4BF4C4C286D741D002B1313 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4DAF787288D846E00C9AFF8 /* SwiftUITooltip in Frameworks */,
 				C752F426B303AEE27780C5A0 /* Pods_Deers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +117,14 @@
 				0FD46112982C98BB9872A010 /* Pods-Deers.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E43CAB5C288D8DD1006AA23D /* DeersTests */ = {
+			isa = PBXGroup;
+			children = (
+				E43CAB5D288D8DD1006AA23D /* DeersTests.swift */,
+			);
+			path = DeersTests;
 			sourceTree = "<group>";
 		};
 		E43F49D02882DC810005F324 /* ViewModel */ = {
@@ -120,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				E4BF4C51286D741D002B1313 /* Deers */,
+				E43CAB5C288D8DD1006AA23D /* DeersTests */,
 				E4BF4C50286D741D002B1313 /* Products */,
 				462FB10E154291ADA9CFF492 /* Pods */,
 				0FE8B48DE8BF8A2BA754E7B2 /* Frameworks */,
@@ -130,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				E4BF4C4F286D741D002B1313 /* Deers.app */,
+				E43CAB5B288D8DD1006AA23D /* DeersTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,6 +239,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E43CAB5A288D8DD1006AA23D /* DeersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E43CAB63288D8DD2006AA23D /* Build configuration list for PBXNativeTarget "DeersTests" */;
+			buildPhases = (
+				E43CAB57288D8DD1006AA23D /* Sources */,
+				E43CAB58288D8DD1006AA23D /* Frameworks */,
+				E43CAB59288D8DD1006AA23D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E43CAB60288D8DD2006AA23D /* PBXTargetDependency */,
+			);
+			name = DeersTests;
+			productName = DeersTests;
+			productReference = E43CAB5B288D8DD1006AA23D /* DeersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E4BF4C4E286D741D002B1313 /* Deers */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4BF4C5D286D7421002B1313 /* Build configuration list for PBXNativeTarget "Deers" */;
@@ -222,6 +272,9 @@
 			dependencies = (
 			);
 			name = Deers;
+			packageProductDependencies = (
+				E4DAF786288D846E00C9AFF8 /* SwiftUITooltip */,
+			);
 			productName = Deers;
 			productReference = E4BF4C4F286D741D002B1313 /* Deers.app */;
 			productType = "com.apple.product-type.application";
@@ -236,6 +289,10 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					E43CAB5A288D8DD1006AA23D = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = E4BF4C4E286D741D002B1313;
+					};
 					E4BF4C4E286D741D002B1313 = {
 						CreatedOnToolsVersion = 13.4;
 					};
@@ -250,16 +307,27 @@
 				Base,
 			);
 			mainGroup = E4BF4C46286D741D002B1313;
+			packageReferences = (
+				E4DAF785288D846E00C9AFF8 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip" */,
+			);
 			productRefGroup = E4BF4C50286D741D002B1313 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				E4BF4C4E286D741D002B1313 /* Deers */,
+				E43CAB5A288D8DD1006AA23D /* DeersTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E43CAB59288D8DD1006AA23D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E4BF4C4D286D741D002B1313 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,6 +385,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E43CAB57288D8DD1006AA23D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E43CAB5E288D8DD1006AA23D /* DeersTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E4BF4C4B286D741D002B1313 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -346,7 +422,49 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		E43CAB60288D8DD2006AA23D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E4BF4C4E286D741D002B1313 /* Deers */;
+			targetProxy = E43CAB5F288D8DD2006AA23D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		E43CAB61288D8DD2006AA23D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.DeersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Deers.app/Deers";
+			};
+			name = Debug;
+		};
+		E43CAB62288D8DD2006AA23D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.DeersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Deers.app/Deers";
+			};
+			name = Release;
+		};
 		E4BF4C5B286D7421002B1313 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -526,6 +644,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E43CAB63288D8DD2006AA23D /* Build configuration list for PBXNativeTarget "DeersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E43CAB61288D8DD2006AA23D /* Debug */,
+				E43CAB62288D8DD2006AA23D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E4BF4C4A286D741D002B1313 /* Build configuration list for PBXProject "Deers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -545,6 +672,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E4DAF785288D846E00C9AFF8 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/quassum/SwiftUI-Tooltip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E4DAF786288D846E00C9AFF8 /* SwiftUITooltip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4DAF785288D846E00C9AFF8 /* XCRemoteSwiftPackageReference "SwiftUI-Tooltip" */;
+			productName = SwiftUITooltip;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E4BF4C47286D741D002B1313 /* Project object */;
 }
