@@ -42,19 +42,24 @@ class ReviewsViewModel: ObservableObject {
                 return
             }
             
+            var counter = 1
+            
+           
+            
             self.reviews = documents.map { (queryDocumentSnapshot) -> Review in
                 let data = queryDocumentSnapshot.data()
                 let status = data["status"] as? String ?? ""
                 let note = data["notes"] as? String ?? ""
-                let id = data["id"] as? String ?? ""
+                let id = counter
                 let date = (data["date"] as? Timestamp)?.dateValue() ?? Date()
                 
-                //time formatter
+                counter = counter + 1
                 
+                //time formatter
                 let timeFormatter = DateFormatter()
-                timeFormatter.timeStyle = .medium
+                timeFormatter.timeStyle = .short
               
-                return Review(id: id , status: status, date: date, time: timeFormatter.string(from: date), note: note)
+                return Review(id: "\(id)" , status: status, date: date, time: timeFormatter.string(from: date), note: note)
             }
         }
     }
