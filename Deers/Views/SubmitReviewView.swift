@@ -15,6 +15,7 @@ struct SubmitReviewView: View {
     @ObservedObject private var textEditorManager = TextEditorManager()
     @State private var noteCounter: Int = 0
     @State private var touchedBtnStatus: String = ""
+    @State private var showErrorMsg: Bool = false
     
     
     var body: some View {
@@ -41,6 +42,7 @@ struct SubmitReviewView: View {
                 }
                 Spacer()
                 
+                
                 // note
                 VStack(alignment: .trailing, spacing: 0, content:{
                     Text("الملاحظات").foregroundColor(Constants.Colors.secondaryColor).padding(10)
@@ -66,15 +68,24 @@ struct SubmitReviewView: View {
                 
                 // submit btn
                 Button(action: {
-                    viewModel.addReview(status: self.touchedBtnStatus, note: String(self.textEditorManager.reviewerInput.prefix(Constants.maxLength.textEditor)))
-                    self.touchedBtnStatus = ""
-                    self.noteCounter = 0
-                    self.textEditorManager.reviewerInput = ""
+                    if (self.touchedBtnStatus != ""){
+                        
+                        viewModel.addReview(status: self.touchedBtnStatus, note: String(self.textEditorManager.reviewerInput.prefix(Constants.maxLength.textEditor)))
+                        self.touchedBtnStatus = ""
+                        self.noteCounter = 0
+                        self.textEditorManager.reviewerInput = ""
+                        self.showErrorMsg = false
+                        
+                    } else{
+                        self.showErrorMsg = true
+                    }
+           
                 }) {
                     HStack {
                         Text("إرسال التقييم").font(.custom("riesling", size: 24)).foregroundColor(Constants.Colors.labelColor).padding()
                     }
                 }.background(Constants.Colors.secondaryColor).cornerRadius(5).padding()
+                Text(self.showErrorMsg ? "الرجاء تحديد حالة تجربتك" : "").foregroundColor(.red).padding()
                 
                 Spacer()
                 

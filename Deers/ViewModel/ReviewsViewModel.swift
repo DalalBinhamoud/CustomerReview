@@ -21,6 +21,7 @@ class ReviewsViewModel: ObservableObject {
         
 //        self.reviewCounter =  UserDefaults.standard.object(forKey: "counter") as! Int
         
+        
         self.reviewCounter = self.reviewCounter + 1
         UserDefaults.standard.set( (self.reviewCounter), forKey: "counter")
         db.collection("Review").addDocument(data: ["id": self.reviewCounter, "status": status, "date": Date.now, "notes": note]){ error in
@@ -37,7 +38,7 @@ class ReviewsViewModel: ObservableObject {
     }
     
     func fetchData() {
-        db.collection("Review").addSnapshotListener { (querySnapshot, error) in
+        db.collection("Review").order(by: "date", descending: true).addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
                 return
