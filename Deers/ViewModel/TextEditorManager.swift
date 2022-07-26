@@ -9,7 +9,7 @@ import Foundation
 import AudioToolbox
 
 class TextEditorManager : ObservableObject {
-    @Published var reviewerInput = "أضف ملاحظاتك..." {
+    @Published var reviewerInput = "" {
         didSet{
             if reviewerInput.count > Constants.maxLength.textEditor{
                 reviewerInput = String(reviewerInput.prefix(Constants.maxLength.textEditor))

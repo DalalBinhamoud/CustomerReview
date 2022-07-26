@@ -14,17 +14,15 @@ struct SubmitReviewView: View {
     @ObservedObject private var viewModel = ReviewsViewModel()
     @ObservedObject private var textEditorManager = TextEditorManager()
     @State private var noteCounter: Int = 0
-    @State private var touchedBtnStatus: String = " "
+    @State private var touchedBtnStatus: String = ""
     
-    // const
-    private let placeholderTxt = "أضف ملاحظاتك..."
     
     var body: some View {
         ScrollView {
             VStack(alignment: .center){
                 
                 Spacer()
-                Text("كيف كانت تجربتك؟").font(.custom("riesling", size: 60)).foregroundColor(Constants.Colors.secondaryColor)
+                Text("كيف كانت تجربتك؟").font(.custom("riesling", size: 60)).foregroundColor(Constants.Colors.primaryColor)
                 
                 // status btns
                 HStack{
@@ -33,7 +31,7 @@ struct SubmitReviewView: View {
                         CustomButton(
                             
                             status: btn.status,
-                            icon: Image(touchedBtnStatus == btn.status ? "\(btn.status)-1": btn.status)
+                            icon: Image(touchedBtnStatus == btn.status || touchedBtnStatus == "" ?  btn.status: "\(btn.status)-1")
                         ) {
                             self.touchedBtnStatus = btn.status
                         }
@@ -57,15 +55,9 @@ struct SubmitReviewView: View {
                         .lineLimit(Constants.maxLength.textLines)
                         .multilineTextAlignment(.trailing)
                     
-                        .foregroundColor(textEditorManager.reviewerInput == placeholderTxt ? .gray : .primary)
+                        .foregroundColor( .primary)
                         .onChange(of: textEditorManager.reviewerInput){ (value) in
                             self.noteCounter = self.textEditorManager.reviewerInput.count
-                        }
-                        .onTapGesture {
-                            // we remove the placeholder when user start typing
-                            if self.textEditorManager.reviewerInput == placeholderTxt {
-                                self.textEditorManager.reviewerInput = ""
-                            }
                         }
                     Text(noteCounter <= 1 ? "\(self.noteCounter) /\(Constants.maxLength.textEditor)" : "\(noteCounter) /\(Constants.maxLength.textEditor)")
                         .foregroundColor(Constants.Colors.secondaryColor).padding()
@@ -77,7 +69,7 @@ struct SubmitReviewView: View {
                     viewModel.addReview(status: self.touchedBtnStatus, note: String(self.textEditorManager.reviewerInput.prefix(Constants.maxLength.textEditor)))
                     self.touchedBtnStatus = ""
                     self.noteCounter = 0
-                    self.textEditorManager.reviewerInput = "أضف ملاحظاتك..."
+                    self.textEditorManager.reviewerInput = ""
                 }) {
                     HStack {
                         Text("إرسال التقييم").font(.custom("riesling", size: 24)).foregroundColor(Constants.Colors.labelColor).padding()
