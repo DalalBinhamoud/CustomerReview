@@ -21,7 +21,7 @@ struct ContentView: View {
         VStack {
             // custom header
             ZStack {
-                Rectangle().fill(Constants.Colors.primaryColor).frame(width: .infinity, height: 100).ignoresSafeArea()
+                Rectangle().fill(Constants.Colors.secondaryColor).frame(width: .infinity, height: 100).ignoresSafeArea()
                 
                 HStack {
                     // make sure the battery is not hidden in real device
