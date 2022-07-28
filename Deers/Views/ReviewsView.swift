@@ -38,6 +38,7 @@ struct ReviewsView: View {
      
     
     var body: some View {
+        GeometryReader { geometry in
         
         VStack{
          
@@ -51,7 +52,7 @@ struct ReviewsView: View {
                     }
                     Text("إلى")
                     
-                }.padding([.trailing], -200)
+                }.padding([.trailing], geometry.size.width < 500 ? -10: -200)
        
                 
                 //start date
@@ -63,7 +64,7 @@ struct ReviewsView: View {
                     
                     Text("من")
                     
-                }
+                }.padding()
                 
                 Image("calendar")
                             .resizable()
@@ -111,6 +112,7 @@ struct ReviewsView: View {
             }.onAppear(){
                 self.viewModel.fetchData()
             }
+        }
         }
     }
 }
