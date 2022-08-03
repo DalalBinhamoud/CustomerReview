@@ -23,26 +23,26 @@ struct SubmitReviewView: View {
         VStack{
             
             Spacer()
-            
-            
+                 
             ScrollView {
                 
                 Text("كيف كانت تجربتك؟").font(.custom("riesling", size: 50)).foregroundColor(Constants.Colors.primaryColor)
-                    .padding([.top], 40)
+                    .padding([.top], 20)
                 
                 // status btns
                 HStack(alignment: .center){
                     ForEach(Constants.fixedLists.btnStatus) { btn in
                         CustomButton(
-                            
+
                             status: btn.status,
                             icon: Image(touchedBtnStatus == btn.status || touchedBtnStatus == "" ?  btn.status: "\(btn.status)-1")
-                        ) {
+                        )
+                        {
                             self.touchedBtnStatus = btn.status
-                        }.frame(maxHeight: 300)
+                        }.frame(maxHeight: 200)
                     }
                     
-                }.padding([.top,.bottom], -40)
+                }
                 
                 // note
                 VStack(alignment: .trailing, spacing: 0, content:{
@@ -92,8 +92,8 @@ struct SubmitReviewView: View {
                     
                 }.padding([.bottom],self.showErrorMsg ? 0 : -50)
                 
-            } // end of scrollable view
-            
+            }// end of scrollable view
+
             VStack{
                 
                 Divider().foregroundColor(Constants.Colors.primaryColor)
@@ -107,7 +107,6 @@ struct SubmitReviewView: View {
                     }
                 }.padding(.bottom, 10).background(Constants.Colors.labelColor)
             }
-            //   Spacer()
         }
     }
 }
