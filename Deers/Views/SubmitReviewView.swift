@@ -19,15 +19,19 @@ struct SubmitReviewView: View {
     
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .center){
+        
+        VStack{
+            
+            Spacer()
+            
+            
+            ScrollView {
                 
-                Spacer()
-                Text("كيف كانت تجربتك؟").font(.custom("riesling", size: 60)).foregroundColor(Constants.Colors.primaryColor)
+                Text("كيف كانت تجربتك؟").font(.custom("riesling", size: 50)).foregroundColor(Constants.Colors.primaryColor)
+                    .padding([.top], 40)
                 
                 // status btns
-                HStack{
-                    Spacer()
+                HStack(alignment: .center){
                     ForEach(Constants.fixedLists.btnStatus) { btn in
                         CustomButton(
                             
@@ -35,13 +39,10 @@ struct SubmitReviewView: View {
                             icon: Image(touchedBtnStatus == btn.status || touchedBtnStatus == "" ?  btn.status: "\(btn.status)-1")
                         ) {
                             self.touchedBtnStatus = btn.status
-                        }
-                        Spacer()
+                        }.frame(maxHeight: 300)
                     }
                     
-                }
-                Spacer()
-                
+                }.padding([.top,.bottom], -40)
                 
                 // note
                 VStack(alignment: .trailing, spacing: 0, content:{
@@ -63,34 +64,39 @@ struct SubmitReviewView: View {
                         }
                     Text(noteCounter <= 1 ? "\(self.noteCounter) /\(Constants.maxLength.textEditor)" : "\(noteCounter) /\(Constants.maxLength.textEditor)")
                         .foregroundColor(Constants.Colors.secondaryColor).padding()
-                }).padding([.top, .leading, .trailing],20)
-                
+                }).padding([.leading, .trailing],20).padding([.top], 0)
                 
                 // submit btn
-                Button(action: {
-                    if (self.touchedBtnStatus != ""){
+                VStack{
+                    
+                    
+                    Button(action: {
+                        if (self.touchedBtnStatus != ""){
+                            
+                            viewModel.addReview(status: self.touchedBtnStatus, note: String(self.textEditorManager.reviewerInput.prefix(Constants.maxLength.textEditor)))
+                            self.touchedBtnStatus = ""
+                            self.noteCounter = 0
+                            self.textEditorManager.reviewerInput = ""
+                            self.showErrorMsg = false
+                            
+                        } else{
+                            self.showErrorMsg = true
+                        }
                         
-                        viewModel.addReview(status: self.touchedBtnStatus, note: String(self.textEditorManager.reviewerInput.prefix(Constants.maxLength.textEditor)))
-                        self.touchedBtnStatus = ""
-                        self.noteCounter = 0
-                        self.textEditorManager.reviewerInput = ""
-                        self.showErrorMsg = false
-                        
-                    } else{
-                        self.showErrorMsg = true
-                    }
-           
-                }) {
-                    HStack {
-                        Text("إرسال التقييم").font(.custom("riesling", size: 24)).foregroundColor(Constants.Colors.labelColor).padding()
-                    }
-                }.background(Constants.Colors.secondaryColor).cornerRadius(5).padding()
-                Text(self.showErrorMsg ? "الرجاء تحديد حالة تجربتك" : "").foregroundColor(.red).padding()
+                    }) {
+                        HStack {
+                            Text("إرسال التقييم").font(.custom("riesling", size: 24)).foregroundColor(Constants.Colors.labelColor).padding()
+                        }
+                    }.background(Constants.Colors.secondaryColor).cornerRadius(5).padding()
+                    Text(self.showErrorMsg ? "الرجاء تحديد حالة تجربتك" : "").foregroundColor(.red).padding()
+                    
+                }.padding([.bottom],self.showErrorMsg ? 0 : -50)
                 
-                Spacer()
+            } // end of scrollable view
+            
+            VStack{
                 
                 Divider().foregroundColor(Constants.Colors.primaryColor)
-                
                 //social media
                 HStack{
                     Spacer()
@@ -99,18 +105,16 @@ struct SubmitReviewView: View {
                         SocialMediaIcon(iconName: content.icon,name: content.name)
                         Spacer()
                     }
-                }.padding(.bottom, 10)
+                }.padding(.bottom, 10).background(Constants.Colors.labelColor)
             }
-            .background(Constants.Colors.labelColor)
+            //   Spacer()
         }
-        
-
     }
 }
 
 struct SubmitReviewView_Previews: PreviewProvider {
     static var previews: some View {
         SubmitReviewView()
-            .previewInterfaceOrientation(.landscapeRight)
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }
